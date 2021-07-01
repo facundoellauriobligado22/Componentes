@@ -1231,19 +1231,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ing005\\.nuget\\packages\\": {}
+    "C:\\Users\\facue\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\ing005\\Documents\\Facundo\\Projects\\BackEnd\\apiComponentes\\apiComponentes.csproj",
+      "projectUniqueName": "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
       "projectName": "apiComponentes",
-      "projectPath": "c:\\Users\\ing005\\Documents\\Facundo\\Projects\\BackEnd\\apiComponentes\\apiComponentes.csproj",
-      "packagesPath": "C:\\Users\\ing005\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\ing005\\Documents\\Facundo\\Projects\\BackEnd\\apiComponentes\\obj\\",
+      "projectPath": "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
+      "packagesPath": "C:\\Users\\facue\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ing005\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\facue\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -1253,6 +1253,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -1264,6 +1265,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Cors": {
             "target": "Package",
@@ -1294,6 +1296,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.16, 3.1.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -1302,7 +1322,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
