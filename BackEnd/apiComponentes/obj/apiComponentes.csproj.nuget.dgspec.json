@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {}
+    "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {}
   },
   "projects": {
-    "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {
+    "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
+        "projectUniqueName": "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
         "projectName": "apiComponentes",
-        "projectPath": "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
-        "packagesPath": "C:\\Users\\facue\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\facue\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\obj\\",
+        "projectPath": "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
+        "packagesPath": "C:\\Users\\ing005\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\facue\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ing005\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -24,7 +24,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -36,7 +35,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
@@ -48,13 +46,29 @@
               "target": "Package",
               "version": "[5.0.7, )"
             },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "MySql.Data": {
               "target": "Package",
-              "version": "[5.0.7, )"
+              "version": "[8.0.26, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[1.3.11, )"
+            },
+            "MySqlConnector.Logging.Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.1.4, )"
+            },
+            "phpmyadmin": {
+              "target": "Package",
+              "version": "[4.7.9, )"
             }
           },
           "imports": [
@@ -67,24 +81,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.16, 3.1.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -93,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.410\\RuntimeIdentifierGraph.json"
         }
       }
     }
