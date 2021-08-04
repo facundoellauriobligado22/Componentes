@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {}
+    "C:\\Users\\ing005\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {
+    "C:\\Users\\ing005\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
+        "projectUniqueName": "C:\\Users\\ing005\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
         "projectName": "apiComponentes",
-        "projectPath": "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
+        "projectPath": "C:\\Users\\ing005\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\apiComponentes.csproj",
         "packagesPath": "C:\\Users\\ing005\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ing005\\Documents\\GitHub\\Componentes\\BackEnd\\apiComponentes\\obj\\",
+        "outputPath": "C:\\Users\\ing005\\Documents\\GitHub\\Compenentes\\BackEnd\\apiComponentes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ing005\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -46,6 +46,12 @@
               "target": "Package",
               "version": "[5.0.7, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.26, )"
@@ -54,21 +60,9 @@
               "target": "Package",
               "version": "[8.0.22, )"
             },
-            "MySqlConnector": {
-              "target": "Package",
-              "version": "[1.3.11, )"
-            },
-            "MySqlConnector.Logging.Microsoft.Extensions.Logging": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.1.4, )"
-            },
-            "phpmyadmin": {
-              "target": "Package",
-              "version": "[4.7.9, )"
             }
           },
           "imports": [
@@ -89,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.411\\RuntimeIdentifierGraph.json"
         }
       }
     }
