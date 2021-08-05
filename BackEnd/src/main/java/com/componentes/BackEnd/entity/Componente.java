@@ -13,7 +13,7 @@ public class Componente {
     private boolean usoEnProduccion;
     private String fotoComponente;
 
-    public Componente(int idComponente) {
+    public Componente(int idUbicacion, String partNumber, String descripcion, int idGrupo, int idFabricante, int stock, int idComponente, String utilizacion, boolean usoEnProduccion, String fotoComponente) {
         this.idComponente = idComponente;
     }
 
