@@ -1,6 +1,5 @@
 package com.componentes.BackEnd.controller;
 
-import antlr.StringUtils;
 import com.componentes.BackEnd.dto.ComponenteDto;
 import com.componentes.BackEnd.dto.Mensaje;
 import com.componentes.BackEnd.entity.Componente;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class ComponenteController {
         Componente componente = componenteService.getOne(id).get();
         return new ResponseEntity(componente, HttpStatus.OK);
     }
-    @GetMapping("/detail/{id}")
+    @GetMapping("/detail/{descripcion}")
     public ResponseEntity<Componente> getByDescripcion(@PathVariable("descripcion") String descripcion){
         if (!componenteService.existsByDescription(descripcion))
             return new ResponseEntity(new Mensaje("No existe"),HttpStatus.NOT_FOUND);
@@ -41,24 +41,25 @@ public class ComponenteController {
         return new ResponseEntity(componente, HttpStatus.OK);
     }
 
-    public ResponseEntity<> create (@RequestBody ComponenteDto componenteDto){
-        if (StringUtils.isBlank(componenteDto.getIdUbicacion()))
+    @PostMapping("/create")
+    public ResponseEntity<Componente> create (@RequestBody ComponenteDto componenteDto){
+        if (componenteDto.getIdUbicacion() == 0 || componenteDto.getIdUbicacion() < 0)
             return new ResponseEntity(new Mensaje("La ubicacion es obligatorio"), HttpStatus.BAD_REQUEST);
         if (StringUtils.isBlank(componenteDto.getPartNumber()))
             return new ResponseEntity(new Mensaje("El partNumber es obligatorio"), HttpStatus.BAD_REQUEST);
         if (StringUtils.isBlank(componenteDto.getDescripcion()))
             return new ResponseEntity(new Mensaje("La descripcion es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getIdGrupo()))
+        if (componenteDto.getIdGrupo() == 0)
             return new ResponseEntity(new Mensaje("El grupo es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getIdFabricante()))
+        if (componenteDto.getIdFabricante()==0)
             return new ResponseEntity(new Mensaje("El fabricante es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getStock()))
+        if (componenteDto.getStock()==0)
             return new ResponseEntity(new Mensaje("El stock es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getCodigoMap()))
+        if (componenteDto.getCodigoMap() ==0)
             return new ResponseEntity(new Mensaje("El codigoMap es obligatorio"), HttpStatus.BAD_REQUEST);
         if (StringUtils.isBlank(componenteDto.getUtilizacion()))
             return new ResponseEntity(new Mensaje("La utilizacion es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.isUsoEnProduccion()))
+        if (componenteDto.isUsoEnProduccion())
             return new ResponseEntity(new Mensaje("El usoEnProduccion es obligatorio"), HttpStatus.BAD_REQUEST);
         if (StringUtils.isBlank(componenteDto.getFotoComponente()))
             return new ResponseEntity(new Mensaje("La foto es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -69,34 +70,23 @@ public class ComponenteController {
         return new ResponseEntity(new Mensaje("Componente creado"), HttpStatus.OK);
     }
 
-    public ResponseEntity<> update (@PathVariable("id") int id, @RequestBody ComponenteDto componenteDto){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Componente> update (@PathVariable("id") int id, @RequestBody ComponenteDto componenteDto){
         if (!componenteService.existsById(id))
             return new ResponseEntity(new Mensaje("El id no existe"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getIdUbicacion()))
-            return new ResponseEntity(new Mensaje("La ubicacion es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getPartNumber()))
-            return new ResponseEntity(new Mensaje("El partNumber es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getDescripcion()))
+        if (componenteService.existsByDescription(componenteDto.getDescripcion()) && componenteService.getByDescripcion(componenteDto.getDescripcion()).get().getIdComponente() != id)
             return new ResponseEntity(new Mensaje("La descripcion es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getIdGrupo()))
-            return new ResponseEntity(new Mensaje("El grupo es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getIdFabricante()))
-            return new ResponseEntity(new Mensaje("El fabricante es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getStock()))
-            return new ResponseEntity(new Mensaje("El stock es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getCodigoMap()))
-            return new ResponseEntity(new Mensaje("El codigoMap es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getUtilizacion()))
-            return new ResponseEntity(new Mensaje("La utilizacion es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.isUsoEnProduccion()))
-            return new ResponseEntity(new Mensaje("El usoEnProduccion es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (StringUtils.isBlank(componenteDto.getFotoComponente()))
-            return new ResponseEntity(new Mensaje("La foto es obligatorio"), HttpStatus.BAD_REQUEST);
 
-        Componente componente = componenteService.getOne(id).get();
+            Componente c = componenteService.getOne(id).get();
 
-        componenteService.save(componente);
-        return new ResponseEntity(new Mensaje("Componente creado"), HttpStatus.OK);
+        componenteService.save(c);
+        return new ResponseEntity(new Mensaje("Componente modificado"), HttpStatus.OK);
+    }
+    public ResponseEntity<Componente> delete (@PathVariable("id")int id){
+        if (!componenteService.existsById(id))
+            return new ResponseEntity(new Mensaje("El id no existe"), HttpStatus.BAD_REQUEST);
+        componenteService.delete(id);
+        return new ResponseEntity(new Mensaje("Componente eliminado"), HttpStatus.OK);
     }
     
 }

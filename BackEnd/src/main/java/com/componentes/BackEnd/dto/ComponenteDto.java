@@ -38,7 +38,7 @@ public class ComponenteDto {
     }
 
     public void setPartNumber(String partNumber) {
-        this.partNumber = partNumber;
+        this.partNumber = partNsumber;
     }
 
     public String getDescripcion() {
