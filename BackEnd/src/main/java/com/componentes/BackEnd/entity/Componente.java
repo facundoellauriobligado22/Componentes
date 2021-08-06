@@ -1,6 +1,15 @@
 package com.componentes.BackEnd.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Componente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComponente;
     private int idUbicacion;
     private String partNumber;
