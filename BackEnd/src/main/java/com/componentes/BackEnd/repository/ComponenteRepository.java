@@ -9,8 +9,7 @@ import java.util.Optional;
 @Repository
 public interface ComponenteRepository extends JpaRepository<Componente, Integer> {
 
-    Optional<Componente> findByDescription(String descripcion);
-    boolean existsByDescription(String descripcion);
-    Optional<Componente> findAll(int id);
+    Optional<Componente> findByDescripcion(String descripcion);
+    boolean existsByDescripcion(String descripcion);
 
 }

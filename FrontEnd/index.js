@@ -1,61 +1,3 @@
-$(document).ready(function () {
-    $.ajax({
-        url: "https://localhost:5001/Deporte/ObtenerDeporte",
-        type: "GET",
-        success: function (result) {
-            if (result.ok) {
-
-            } else {
-                cargarComboGrupo(result.return);
-            }
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-    $.ajax({
-        url: "https://localhost:5001/Deporte/ObtenerDeporte",
-        type: "GET",
-        success: function (result) {
-            if (result.ok) {
-
-            } else {
-                cargarComboUbicacion(result.return);
-            }
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-    $.ajax({
-        url: "https://localhost:5001/Deporte/ObtenerDeporte",
-        type: "GET",
-        success: function (result) {
-            if (result.ok) {
-
-            } else {
-                cargarComboFabricantes(result.return);
-            }
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-    $.ajax({
-        url: "https://localhost:5001/Deporte/ObtenerDeporte",
-        type: "GET",
-        success: function (result) {
-            if (result.ok) {
-
-            } else {
-                cargarComboProduccion(result.return);
-            }
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-});
 $("#btnCargar").click(function () {
 
     let numeroParte = $("#txtPartNumber").val();
@@ -76,30 +18,48 @@ $("#btnCargar").click(function () {
     else if (descripcion === "") {
         swal("Mal!", "Ingresa una descripcion", "error");
     }
-    else if (ubicacion === "Seleccionar") {
-        swal("Mal!", "Seleccione una ubicacion", "error");
-    }
-    else if (grupo === "Seleccionar") {
-        swal("Mal!", "Seleccione un grupo", "error");
-    }
-    else if (fabricantes === "Seleccionar") {
-        swal("Mal!", "Seleccione un fabricante", "error");
-    }
-    else if(usoProduccion === ""){
-        swal("Mal!", "Seleccione un uso en produccion", "error");
-    }
-    else if(stock === ""){
+    else if (stock === "") {
         swal("Mal!", "Ingresa el stock", "error");
     }
-    else if(codigoMAP ===""){
+    else if (codigoMAP === "") {
         swal("Mal!", "Ingresa el codigo MAP", "error");
     }
-    else if (fotoComponente === ""){
+    else if (fotoComponente === "") {
         swal("Mal!", "Ingresa una foto del componente", "error");
     }
     else {
+        comando = {
+            "idUbicacion": 1,
+            "partNumber": numeroParte,
+            "descripcion": descripcion,
+            "idGrupo": 1,
+            "idFabricante": 1,
+            "stock": stock,
+            "codigoMap": 3455,
+            "utilizacion": utilizacion,
+            "usoEnProduccion": false,
+            "fotoComponente": fotoComponente
+        }
+        $.ajax({
+            url: "http://localhost:8080/componente/create",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(comando),
+            success: function (result) {
+                if (result.ok) {
+                    swal("Buen trabajo", "Se registro tu socio", "success");
+                } else {
+                    result.ok = false;
+                }
+            },
+            error: function (error) {
+
+            }
+        });
         swal("Buen trabajo", "Se registro tu componente", "success");
     }
+
 });
 
 function cargarComboGrupo(datos) {

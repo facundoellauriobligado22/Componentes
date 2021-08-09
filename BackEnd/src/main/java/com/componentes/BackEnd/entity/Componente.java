@@ -10,7 +10,7 @@ public class Componente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idComponente;
+    private int id;
     private int idUbicacion;
     private String partNumber;
     private String descripcion;
@@ -22,12 +22,10 @@ public class Componente {
     private boolean usoEnProduccion;
     private String fotoComponente;
 
-    public Componente(int idUbicacion, String partNumber, String descripcion, int idGrupo, int idFabricante, int stock, int idComponente, String utilizacion, boolean usoEnProduccion, String fotoComponente) {
-        this.idComponente = idComponente;
+    public Componente() {
     }
 
-    public Componente(int idComponente, int idUbicacion, String partNumber, String descripcion, int idGrupo, int idFabricante, int stock, int codigoMap, String utilizacion, boolean usoEnProduccion, String fotoComponente) {
-        this.idComponente = idComponente;
+    public Componente(int idUbicacion, String partNumber, String descripcion, int idGrupo, int idFabricante, int stock, int codigoMap, String utilizacion, boolean usoEnProduccion, String fotoComponente) {
         this.idUbicacion = idUbicacion;
         this.partNumber = partNumber;
         this.descripcion = descripcion;
@@ -41,11 +39,11 @@ public class Componente {
     }
 
     public int getIdComponente() {
-        return idComponente;
+        return id;
     }
 
     public void setIdComponente(int idComponente) {
-        this.idComponente = idComponente;
+        this.id = idComponente;
     }
 
     public int getIdUbicacion() {
